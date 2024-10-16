@@ -17,9 +17,9 @@ export class Product {
   @Column({ type: "varchar" })
   name: string;
 
-  @ManyToMany(() => Categories,(category) => category.name)
+  @ManyToMany(() => Categories,(category_id) => category_id.id)
   @JoinTable()
-  category: Categories[]
+  category_id: Categories[]
 
   @Column({ type: "decimal" })
   price: number;
