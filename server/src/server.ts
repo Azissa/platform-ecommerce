@@ -3,6 +3,7 @@ import compression from "compression";
 import rateLimit from "express-rate-limit";
 import { HttpCode, ONE_HUNDRED, ONE_THOUSAND, SIXTY } from "./core/constants";
 import { dataSource } from "./core/config/app-data-source";
+import router from './routes/userRoutes'
 
 interface ServerOptions {
   port: number;
@@ -38,6 +39,10 @@ export class Server {
         message: `Welcome to Initial API! \n Endpoints available at http://localhost:${this.port}/`,
       });
     });
+
+
+    this.app.use("/api",router)
+
 
     dataSource
       .initialize()
