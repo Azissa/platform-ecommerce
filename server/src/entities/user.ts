@@ -12,7 +12,7 @@ export class User {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column({ type: "varchar" })
+  @Column({ type: "varchar",nullable: true })
   avatar: string;
 
   @Column({ type: "varchar" })
@@ -45,8 +45,8 @@ export class Adresses {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @OneToMany(() => User,(user_id) => user_id.id)
-  user_id: User[]
+  @OneToMany(() => User, (user_id) => user_id.id)
+  user_id: User[];
 
   @Column({ type: "varchar" })
   title: string;
